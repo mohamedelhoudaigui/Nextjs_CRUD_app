@@ -8,9 +8,19 @@ function FormComponent() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		
-	}
-
+		fetch('/api/AddUser', {
+		  method: 'POST',
+		  headers: {
+			'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({ name, email, password }),
+		})
+		.then(response => response.json())
+		.then(data => console.log(data))
+		.catch((error) => {
+		  console.error('Error:', error);
+		});
+	};
 	return (
 		<form onSubmit={handleSubmit}>
 			<input
