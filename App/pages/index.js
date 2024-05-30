@@ -1,9 +1,12 @@
 import FormComponent from "../components/FormComponent";
+import MainComponent from "../components/MainComponent";
 
-function GetHome() {
+function App() {
   return (
-	<FormComponent />
+  <div>
+    <MainComponent/>
+  </div>
   );
 }
 
-export default GetHome;
+export default App;

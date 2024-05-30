@@ -1,5 +1,7 @@
+import InputField from './InputFieldComponent';
+import ButtonComponent from './ButtonComponent';
 import React, { useState } from 'react';
-import pb from '../pocketbase';  // Ensure this path matches where your pocketbase.js is located
+import pb from '../pocketbase';
 
 function FormComponent() {
   const [name, setName] = useState("");
@@ -13,7 +15,6 @@ function FormComponent() {
         name: name,
         email: email,
         password: password,
-        passwordConfirm: password, // Assuming you need password confirmation
       };
       const response = await pb.collection('next_users').create(newUser);
       console.log(response);
@@ -26,28 +27,31 @@ function FormComponent() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <InputField
+        label="Name"
         type="text"
+        name="name"
         placeholder="Enter your name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(event) => setName(event.target.value)}
       />
-      <br />
-      <input
+      <InputField
+        label="Email"
         type="email"
+        name="email"
         placeholder="Enter your email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(event) => setEmail(event.target.value)}
       />
-      <br />
-      <input
+      <InputField
+        label="Password"
         type="password"
+        name="password"
         placeholder="Enter your password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(event) => setPassword(event.target.value)}
       />
-      <br />
-      <button type="submit">Submit</button>
+      <ButtonComponent label="Sign in" type="submit" />
     </form>
   );
 }
