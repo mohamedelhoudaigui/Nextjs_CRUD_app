@@ -3,7 +3,7 @@ import AddUserComponent from './AddUserComponent';
 import UpdateUserComponent from './UpdateUserComponent';
 import DeleteUserComponent from './DeleteUserComponent';
 
-function FormComponent({ mode }) {
+function FormComponent({ mode }, updateFunc) {
   if (mode == 'add') {
     return <AddUserComponent />;
   } else if (mode == 'update') {

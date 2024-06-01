@@ -62,7 +62,7 @@ const UpdateUserComponent = () => {
 			value={password}
 			onChange={(event) => setPassword(event.target.value)}
 		/>
-		<ButtonComponent label="ADD" type="submit" />
+		<ButtonComponent label="UPDATE" type="submit" />
 		</form>
 		);
 }

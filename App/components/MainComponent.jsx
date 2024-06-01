@@ -1,29 +1,39 @@
-import React from 'react';
+import { useState } from 'react';
 import ButtonComponent from './ButtonComponent';
 import TableComponent from './TableComponent';
 
 const MainComponent = () => {
-  return (
+
+	const [updateTable, setUpdateTable] = useState(false);
+
+	const updateFunc = () => {
+		setUpdateTable(prevState => !prevState);
+	}
+
+	return (
 	<div>
-	  <h1>Crud App</h1>
-	  <TableComponent />
-	  <ButtonComponent
+		<h1>Crud App</h1>
+		<TableComponent key={updateTable}/>
+		<ButtonComponent
 		label="Add User"
 		type="button"
 		mode="add"
+		updateFunc={updateFunc}
 		/>
-	  <ButtonComponent
+		<ButtonComponent
 		label="Delete User"
 		type="button"
 		mode="delete"
-	   />
-	  <ButtonComponent
+		updateFunc={updateFunc}
+		/>
+		<ButtonComponent
 		label="Update User"
 		type="button"
 		mode="update"
-	  />
+		updateFunc={updateFunc}
+		/>
 	</div>
-  );
+	);
 }
 
 export default MainComponent;
