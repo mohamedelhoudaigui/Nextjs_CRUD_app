@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+pb_db/
 
 # Next.js
 .next/
